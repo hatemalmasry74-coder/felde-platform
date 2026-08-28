@@ -3967,135 +3967,6 @@ html[dir=ltr] .ni.active{border-left-color:var(--r);border-right:none}
         </div>
       </div>
 
-    </div>
-  </div>
-</div>
-
-<!-- EDIT CASHIER MODAL -->
-<div class="um-modal" id="modal-edit-cashier">
-  <div class="um-box" style="width:560px;max-width:96vw">
-    <div class="um-title">
-      تعديل نموذج التقفيل
-      <button class="um-close" onclick="closeModal('modal-edit-cashier')">×</button>
-    </div>
-    <input type="hidden" id="ec-doc-id">
-    <div class="fg2">
-      <div class="fr"><label>التاريخ</label><input type="date" id="ec-date"></div>
-      <div class="fr"><label>اسم الكاشير</label><input type="text" id="ec-cashier"></div>
-    </div>
-    <div style="background:var(--b);border-radius:8px;padding:10px;margin-bottom:10px">
-      <div style="font-size:11px;font-weight:700;color:var(--tm);margin-bottom:8px">المدفوعات الإلكترونية</div>
-      <div class="fg2">
-        <div class="fr"><label>Mada</label><input type="number" id="ec-mada" placeholder="0.00" step="0.01" oninput="calcEditTotal()"></div>
-        <div class="fr"><label>Visa</label><input type="number" id="ec-visa" placeholder="0.00" step="0.01" oninput="calcEditTotal()"></div>
-        <div class="fr"><label>Master Card</label><input type="number" id="ec-master" placeholder="0.00" step="0.01" oninput="calcEditTotal()"></div>
-        <div class="fr"><label>MyTable</label><input type="number" id="ec-mytable" placeholder="0.00" step="0.01" oninput="calcEditTotal()"></div>
-        <div class="fr"><label>🛵 نينجا Ninja</label><input type="number" id="ec-ninja" placeholder="0.00" step="0.01" oninput="calcEditTotal()"></div>
-        <div class="fr"><label>🌐 الشبكة الخليجية Gulf Network</label><input type="number" id="ec-gulf" placeholder="0.00" step="0.01" oninput="calcEditTotal()"></div>
-        <div class="fr"><label>🛵 هنجرستيشن HungerStation</label><input type="number" id="ec-hunger" placeholder="0.00" step="0.01" oninput="calcEditTotal()"></div>
-        <div class="fr"><label>تحويل بنكي</label><input type="number" id="ec-transfer" placeholder="0.00" step="0.01" oninput="calcEditTotal()"></div>
-        <div class="fr"><label>إيرادات أخرى</label><input type="number" id="ec-other" placeholder="0.00" step="0.01" oninput="calcEditTotal()"></div>
-      </div>
-    </div>
-    <div style="background:var(--b);border-radius:8px;padding:10px;margin-bottom:10px">
-      <div style="font-size:11px;font-weight:700;color:var(--tm);margin-bottom:8px">النقدي</div>
-      <div class="fg2">
-        <div class="fr"><label>Cash Opening</label><input type="number" id="ec-cash-open" placeholder="0.00" step="0.01" oninput="calcEditTotal()"></div>
-        <div class="fr"><label>Cash Sales</label><input type="number" id="ec-cash-sales" placeholder="0.00" step="0.01" oninput="calcEditTotal()"></div>
-      </div>
-    </div>
-    <div class="fg2">
-      <div class="fr"><label>Void</label><input type="number" id="ec-void" placeholder="0.00" step="0.01"></div>
-      <div class="fr"><label>Discount</label><input type="number" id="ec-disc" placeholder="0.00" step="0.01"></div>
-    </div>
-    <div style="background:#FFF8E1;border:1.5px solid #FFB74D;border-radius:8px;padding:10px;margin-bottom:10px">
-      <div style="font-size:11px;font-weight:700;color:#E65100;margin-bottom:8px">💼 الذمم المدينة</div>
-      <div class="fg2">
-        <div class="fr"><label style="color:#E65100">📝 آجل (عملاء معروفون)</label><input type="number" id="ec-unpaid" placeholder="0.00" step="0.01" style="background:#FFF8E1;border-color:#FFB74D;color:#E65100"></div>
-        <div class="fr"><label style="color:#B71C1C">🚨 عميل غادر بدون دفع (Walk-out)</label><input type="number" id="ec-walkout" placeholder="0.00" step="0.01" style="background:#FFEBEE;border-color:#EF5350;color:#B71C1C;font-weight:700"></div>
-      </div>
-      <div class="fr" style="margin-top:6px"><label style="color:#B71C1C">🔍 ملاحظة Walk-out (السبب / المسؤول)</label><input type="text" id="ec-walkout-note" placeholder="مثال: غادر العميل قبل تقديم الفاتورة — كاشير: محمد" style="background:#FFEBEE;border-color:#EF5350"></div>
-    </div>
-    <div style="background:var(--rd);border-radius:7px;padding:10px;display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-      <span style="color:#fff;font-size:12px;font-weight:700">Total Sales المحدّث</span>
-      <span style="color:#8C6442;font-size:18px;font-weight:900" id="ec-total-display">0.00 ﷼</span>
-    </div>
-    <div class="fr"><label>سبب التعديل</label><input type="text" id="ec-reason" placeholder="مثال: خطأ في إدخال مدى"></div>
-    <div style="display:flex;gap:7px">
-      <button class="btn bwa" onclick="saveEditCashier()" style="flex:1">💾 حفظ التعديلات</button>
-      <button class="btn bo" onclick="closeModal('modal-edit-cashier')">إلغاء</button>
-    </div>
-  </div>
-</div>
-
-<!-- ACCOUNTING COMPARISON MODAL -->
-<div class="um-modal" id="modal-accounting">
-  <div class="um-box" style="width:620px;max-width:96vw">
-    <div class="um-title">
-      مراجعة محاسبية — مقارنة مع البرنامج المحاسبي
-      <button class="um-close" onclick="closeModal('modal-accounting')">×</button>
-    </div>
-    <input type="hidden" id="ac-doc-id">
-    <div id="ac-cashier-summary" style="background:var(--b);border-radius:8px;padding:10px;margin-bottom:12px;font-size:12px"></div>
-    <div style="background:var(--b);border-radius:8px;padding:12px;margin-bottom:12px">
-      <div style="font-size:12px;font-weight:700;color:var(--tm);margin-bottom:10px">📊 أرقام البرنامج المحاسبي</div>
-      <div class="fg2">
-        <div class="fr"><label>💳 بطاقات (Mada+Visa+Master+MyTable)</label><input type="number" id="ac-bank" placeholder="0.00" step="0.01" oninput="calcComparison()"></div>
-        <div class="fr"><label>🛵 نينجا Ninja</label><input type="number" id="ac-ninja" placeholder="0.00" step="0.01" oninput="calcComparison()"></div>
-        <div class="fr"><label>🌐 الشبكة الخليجية Gulf Network</label><input type="number" id="ac-gulf" placeholder="0.00" step="0.01" oninput="calcComparison()"></div>
-        <div class="fr"><label>🛵 هنجرستيشن HungerStation</label><input type="number" id="ac-hunger" placeholder="0.00" step="0.01" oninput="calcComparison()"></div>
-        <div class="fr"><label>↔️ تحويل بنكي</label><input type="number" id="ac-transfer" placeholder="0.00" step="0.01" oninput="calcComparison()"></div>
-        <div class="fr"><label>💵 نقدي</label><input type="number" id="ac-cash" placeholder="0.00" step="0.01" oninput="calcComparison()"></div>
-        <div class="fr"><label>Void</label><input type="number" id="ac-void" placeholder="0.00" step="0.01" oninput="calcComparison()"></div>
-      </div>
-      <!-- AUTO TOTAL -->
-      <div style="background:var(--rd);border-radius:7px;padding:10px;display:flex;justify-content:space-between;align-items:center;margin-top:8px">
-        <span style="color:#fff;font-size:12px;font-weight:700">إجمالي المبيعات المحاسبي (محسوب تلقائياً)</span>
-        <span style="color:#8C6442;font-size:18px;font-weight:900" id="ac-total-display">0.00 ﷼</span>
-      </div>
-      <input type="hidden" id="ac-total">
-    </div>
-
-    <!-- إعادة تصنيف الذمم المدينة -->
-    <div style="background:#FFF8E1;border:1.5px solid #FFB74D;border-radius:8px;padding:12px;margin-bottom:12px">
-      <div style="font-size:12px;font-weight:700;color:#E65100;margin-bottom:6px">💼 الذمم المدينة — إعادة التصنيف من المراجع</div>
-      <div style="background:#fff;border-radius:6px;padding:8px;font-size:10px;color:#666;margin-bottom:10px;line-height:1.5">
-        💡 <b>دليل المراجع:</b> إذا كان الفرق ناتجاً عن <b>عميل غادر بدون دفع</b> أو <b>عميل آجل لم يُسجَّل في التقفيل</b>، أعد تصنيف المبلغ هنا. هذا يُحوّل العجز من "خسارة كاشير" إلى "ذمة مدينة" محاسبياً وفق IFRS.
-      </div>
-      <div class="fg2">
-        <div class="fr"><label style="color:#E65100">📝 آجل (عملاء معروفون)</label>
-          <input type="number" id="ac-unpaid" placeholder="0.00" step="0.01" oninput="calcComparison()" style="background:#FFF8E1;border-color:#FFB74D;color:#E65100;font-weight:700">
-        </div>
-        <div class="fr"><label style="color:#9C27B0">👤 عميل لم يحاسب</label>
-          <input type="number" id="ac-unaccounted" placeholder="0.00" step="0.01" oninput="calcComparison()" style="background:#F3E5F5;border-color:#9C27B0;color:#6A1B9A;font-weight:700">
-        </div>
-      </div>
-      <div class="fg2">
-        <div class="fr"><label style="color:#B71C1C">🚨 عميل غادر بدون دفع (Walk-out)</label>
-          <input type="number" id="ac-walkout" placeholder="0.00" step="0.01" oninput="calcComparison()" style="background:#FFEBEE;border-color:#EF5350;color:#B71C1C;font-weight:700">
-        </div>
-      </div>
-      <div class="fr" style="margin-top:6px"><label style="color:#B71C1C">🔍 ملاحظة Walk-out (السبب / المسؤول / الوقت)</label>
-        <input type="text" id="ac-walkout-note" placeholder="مثال: غادر العميل قبل تقديم الفاتورة — الكاشير: محمد — الساعة 14:30" style="background:#FFEBEE;border-color:#EF5350">
-      </div>
-      <div id="ac-reclassify-hint" style="display:none;background:#E3F2FD;border:1.5px solid #1976D2;border-radius:6px;padding:8px;margin-top:8px;font-size:11px;color:#0D47A1;font-weight:700"></div>
-    </div>
-    <!-- COMPARISON RESULT -->
-    <div id="ac-result" style="display:none">
-      <div style="font-size:12px;font-weight:700;color:var(--tm);margin-bottom:8px">📋 نتيجة المقارنة</div>
-      <table class="dt" id="ac-table" style="margin-bottom:12px">
-        <thead><tr><th>البند</th><th>التقفيل</th><th>المحاسبي</th><th>الفرق</th></tr></thead>
-        <tbody id="ac-tbody"></tbody>
-      </table>
-      <div id="ac-verdict" style="border-radius:9px;padding:14px;text-align:center;margin-bottom:12px"></div>
-      <div class="fr"><label>الشخص المسؤول عن الفرق</label>
-        <input type="text" id="ac-responsible" value="">
-      </div>
-      <div class="fr"><label>ملاحظات المراجعة</label><textarea id="ac-notes" placeholder="ملاحظات إضافية..." style="min-height:60px"></textarea></div>
-    </div>
-    <div style="display:flex;gap:7px">
-      <button class="btn bp" onclick="saveAccounting()" style="flex:1">💾 حفظ المراجعة المحاسبية</button>
-      <button class="btn bo" onclick="closeModal('modal-accounting')">إغلاق</button>
       <!-- ===== ACCOUNTING: JOURNAL ENTRIES ===== -->
       <div class="page" id="pg-acc-journal">
         <div class="ph"><h1>🧾 القيود اليومية</h1><p>دفتر اليومية العام — تسجيل وترحيل القيود المحاسبية</p></div>
@@ -4248,6 +4119,135 @@ html[dir=ltr] .ni.active{border-left-color:var(--r);border-right:none}
         </div>
       </div>
 
+    </div>
+  </div>
+</div>
+
+<!-- EDIT CASHIER MODAL -->
+<div class="um-modal" id="modal-edit-cashier">
+  <div class="um-box" style="width:560px;max-width:96vw">
+    <div class="um-title">
+      تعديل نموذج التقفيل
+      <button class="um-close" onclick="closeModal('modal-edit-cashier')">×</button>
+    </div>
+    <input type="hidden" id="ec-doc-id">
+    <div class="fg2">
+      <div class="fr"><label>التاريخ</label><input type="date" id="ec-date"></div>
+      <div class="fr"><label>اسم الكاشير</label><input type="text" id="ec-cashier"></div>
+    </div>
+    <div style="background:var(--b);border-radius:8px;padding:10px;margin-bottom:10px">
+      <div style="font-size:11px;font-weight:700;color:var(--tm);margin-bottom:8px">المدفوعات الإلكترونية</div>
+      <div class="fg2">
+        <div class="fr"><label>Mada</label><input type="number" id="ec-mada" placeholder="0.00" step="0.01" oninput="calcEditTotal()"></div>
+        <div class="fr"><label>Visa</label><input type="number" id="ec-visa" placeholder="0.00" step="0.01" oninput="calcEditTotal()"></div>
+        <div class="fr"><label>Master Card</label><input type="number" id="ec-master" placeholder="0.00" step="0.01" oninput="calcEditTotal()"></div>
+        <div class="fr"><label>MyTable</label><input type="number" id="ec-mytable" placeholder="0.00" step="0.01" oninput="calcEditTotal()"></div>
+        <div class="fr"><label>🛵 نينجا Ninja</label><input type="number" id="ec-ninja" placeholder="0.00" step="0.01" oninput="calcEditTotal()"></div>
+        <div class="fr"><label>🌐 الشبكة الخليجية Gulf Network</label><input type="number" id="ec-gulf" placeholder="0.00" step="0.01" oninput="calcEditTotal()"></div>
+        <div class="fr"><label>🛵 هنجرستيشن HungerStation</label><input type="number" id="ec-hunger" placeholder="0.00" step="0.01" oninput="calcEditTotal()"></div>
+        <div class="fr"><label>تحويل بنكي</label><input type="number" id="ec-transfer" placeholder="0.00" step="0.01" oninput="calcEditTotal()"></div>
+        <div class="fr"><label>إيرادات أخرى</label><input type="number" id="ec-other" placeholder="0.00" step="0.01" oninput="calcEditTotal()"></div>
+      </div>
+    </div>
+    <div style="background:var(--b);border-radius:8px;padding:10px;margin-bottom:10px">
+      <div style="font-size:11px;font-weight:700;color:var(--tm);margin-bottom:8px">النقدي</div>
+      <div class="fg2">
+        <div class="fr"><label>Cash Opening</label><input type="number" id="ec-cash-open" placeholder="0.00" step="0.01" oninput="calcEditTotal()"></div>
+        <div class="fr"><label>Cash Sales</label><input type="number" id="ec-cash-sales" placeholder="0.00" step="0.01" oninput="calcEditTotal()"></div>
+      </div>
+    </div>
+    <div class="fg2">
+      <div class="fr"><label>Void</label><input type="number" id="ec-void" placeholder="0.00" step="0.01"></div>
+      <div class="fr"><label>Discount</label><input type="number" id="ec-disc" placeholder="0.00" step="0.01"></div>
+    </div>
+    <div style="background:#FFF8E1;border:1.5px solid #FFB74D;border-radius:8px;padding:10px;margin-bottom:10px">
+      <div style="font-size:11px;font-weight:700;color:#E65100;margin-bottom:8px">💼 الذمم المدينة</div>
+      <div class="fg2">
+        <div class="fr"><label style="color:#E65100">📝 آجل (عملاء معروفون)</label><input type="number" id="ec-unpaid" placeholder="0.00" step="0.01" style="background:#FFF8E1;border-color:#FFB74D;color:#E65100"></div>
+        <div class="fr"><label style="color:#B71C1C">🚨 عميل غادر بدون دفع (Walk-out)</label><input type="number" id="ec-walkout" placeholder="0.00" step="0.01" style="background:#FFEBEE;border-color:#EF5350;color:#B71C1C;font-weight:700"></div>
+      </div>
+      <div class="fr" style="margin-top:6px"><label style="color:#B71C1C">🔍 ملاحظة Walk-out (السبب / المسؤول)</label><input type="text" id="ec-walkout-note" placeholder="مثال: غادر العميل قبل تقديم الفاتورة — كاشير: محمد" style="background:#FFEBEE;border-color:#EF5350"></div>
+    </div>
+    <div style="background:var(--rd);border-radius:7px;padding:10px;display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+      <span style="color:#fff;font-size:12px;font-weight:700">Total Sales المحدّث</span>
+      <span style="color:#8C6442;font-size:18px;font-weight:900" id="ec-total-display">0.00 ﷼</span>
+    </div>
+    <div class="fr"><label>سبب التعديل</label><input type="text" id="ec-reason" placeholder="مثال: خطأ في إدخال مدى"></div>
+    <div style="display:flex;gap:7px">
+      <button class="btn bwa" onclick="saveEditCashier()" style="flex:1">💾 حفظ التعديلات</button>
+      <button class="btn bo" onclick="closeModal('modal-edit-cashier')">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<!-- ACCOUNTING COMPARISON MODAL -->
+<div class="um-modal" id="modal-accounting">
+  <div class="um-box" style="width:620px;max-width:96vw">
+    <div class="um-title">
+      مراجعة محاسبية — مقارنة مع البرنامج المحاسبي
+      <button class="um-close" onclick="closeModal('modal-accounting')">×</button>
+    </div>
+    <input type="hidden" id="ac-doc-id">
+    <div id="ac-cashier-summary" style="background:var(--b);border-radius:8px;padding:10px;margin-bottom:12px;font-size:12px"></div>
+    <div style="background:var(--b);border-radius:8px;padding:12px;margin-bottom:12px">
+      <div style="font-size:12px;font-weight:700;color:var(--tm);margin-bottom:10px">📊 أرقام البرنامج المحاسبي</div>
+      <div class="fg2">
+        <div class="fr"><label>💳 بطاقات (Mada+Visa+Master+MyTable)</label><input type="number" id="ac-bank" placeholder="0.00" step="0.01" oninput="calcComparison()"></div>
+        <div class="fr"><label>🛵 نينجا Ninja</label><input type="number" id="ac-ninja" placeholder="0.00" step="0.01" oninput="calcComparison()"></div>
+        <div class="fr"><label>🌐 الشبكة الخليجية Gulf Network</label><input type="number" id="ac-gulf" placeholder="0.00" step="0.01" oninput="calcComparison()"></div>
+        <div class="fr"><label>🛵 هنجرستيشن HungerStation</label><input type="number" id="ac-hunger" placeholder="0.00" step="0.01" oninput="calcComparison()"></div>
+        <div class="fr"><label>↔️ تحويل بنكي</label><input type="number" id="ac-transfer" placeholder="0.00" step="0.01" oninput="calcComparison()"></div>
+        <div class="fr"><label>💵 نقدي</label><input type="number" id="ac-cash" placeholder="0.00" step="0.01" oninput="calcComparison()"></div>
+        <div class="fr"><label>Void</label><input type="number" id="ac-void" placeholder="0.00" step="0.01" oninput="calcComparison()"></div>
+      </div>
+      <!-- AUTO TOTAL -->
+      <div style="background:var(--rd);border-radius:7px;padding:10px;display:flex;justify-content:space-between;align-items:center;margin-top:8px">
+        <span style="color:#fff;font-size:12px;font-weight:700">إجمالي المبيعات المحاسبي (محسوب تلقائياً)</span>
+        <span style="color:#8C6442;font-size:18px;font-weight:900" id="ac-total-display">0.00 ﷼</span>
+      </div>
+      <input type="hidden" id="ac-total">
+    </div>
+
+    <!-- إعادة تصنيف الذمم المدينة -->
+    <div style="background:#FFF8E1;border:1.5px solid #FFB74D;border-radius:8px;padding:12px;margin-bottom:12px">
+      <div style="font-size:12px;font-weight:700;color:#E65100;margin-bottom:6px">💼 الذمم المدينة — إعادة التصنيف من المراجع</div>
+      <div style="background:#fff;border-radius:6px;padding:8px;font-size:10px;color:#666;margin-bottom:10px;line-height:1.5">
+        💡 <b>دليل المراجع:</b> إذا كان الفرق ناتجاً عن <b>عميل غادر بدون دفع</b> أو <b>عميل آجل لم يُسجَّل في التقفيل</b>، أعد تصنيف المبلغ هنا. هذا يُحوّل العجز من "خسارة كاشير" إلى "ذمة مدينة" محاسبياً وفق IFRS.
+      </div>
+      <div class="fg2">
+        <div class="fr"><label style="color:#E65100">📝 آجل (عملاء معروفون)</label>
+          <input type="number" id="ac-unpaid" placeholder="0.00" step="0.01" oninput="calcComparison()" style="background:#FFF8E1;border-color:#FFB74D;color:#E65100;font-weight:700">
+        </div>
+        <div class="fr"><label style="color:#9C27B0">👤 عميل لم يحاسب</label>
+          <input type="number" id="ac-unaccounted" placeholder="0.00" step="0.01" oninput="calcComparison()" style="background:#F3E5F5;border-color:#9C27B0;color:#6A1B9A;font-weight:700">
+        </div>
+      </div>
+      <div class="fg2">
+        <div class="fr"><label style="color:#B71C1C">🚨 عميل غادر بدون دفع (Walk-out)</label>
+          <input type="number" id="ac-walkout" placeholder="0.00" step="0.01" oninput="calcComparison()" style="background:#FFEBEE;border-color:#EF5350;color:#B71C1C;font-weight:700">
+        </div>
+      </div>
+      <div class="fr" style="margin-top:6px"><label style="color:#B71C1C">🔍 ملاحظة Walk-out (السبب / المسؤول / الوقت)</label>
+        <input type="text" id="ac-walkout-note" placeholder="مثال: غادر العميل قبل تقديم الفاتورة — الكاشير: محمد — الساعة 14:30" style="background:#FFEBEE;border-color:#EF5350">
+      </div>
+      <div id="ac-reclassify-hint" style="display:none;background:#E3F2FD;border:1.5px solid #1976D2;border-radius:6px;padding:8px;margin-top:8px;font-size:11px;color:#0D47A1;font-weight:700"></div>
+    </div>
+    <!-- COMPARISON RESULT -->
+    <div id="ac-result" style="display:none">
+      <div style="font-size:12px;font-weight:700;color:var(--tm);margin-bottom:8px">📋 نتيجة المقارنة</div>
+      <table class="dt" id="ac-table" style="margin-bottom:12px">
+        <thead><tr><th>البند</th><th>التقفيل</th><th>المحاسبي</th><th>الفرق</th></tr></thead>
+        <tbody id="ac-tbody"></tbody>
+      </table>
+      <div id="ac-verdict" style="border-radius:9px;padding:14px;text-align:center;margin-bottom:12px"></div>
+      <div class="fr"><label>الشخص المسؤول عن الفرق</label>
+        <input type="text" id="ac-responsible" value="">
+      </div>
+      <div class="fr"><label>ملاحظات المراجعة</label><textarea id="ac-notes" placeholder="ملاحظات إضافية..." style="min-height:60px"></textarea></div>
+    </div>
+    <div style="display:flex;gap:7px">
+      <button class="btn bp" onclick="saveAccounting()" style="flex:1">💾 حفظ المراجعة المحاسبية</button>
+      <button class="btn bo" onclick="closeModal('modal-accounting')">إغلاق</button>
     </div>
   </div>
 </div>
@@ -19150,5 +19150,14 @@ function accGo(pid){
 
 </script>
 
+<style id="felde-brand">
+.topbar{background:linear-gradient(180deg,#3C040F,#26030A);box-shadow:0 1px 0 #231417}
+.tb-name{color:#F2ECE7;letter-spacing:2.5px}
+.tbtn{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.22);color:#F2ECE7}
+.ubadge{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18)}
+.urole{color:#D8B08C}
+.uname{color:#F2ECE7}
+.tb-logo{box-shadow:0 0 0 3px rgba(255,255,255,.28)}
+</style>
 </body>
 </html>
