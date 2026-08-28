@@ -19187,5 +19187,29 @@ function feldeWelcome(){
   }catch(e){}
 }
 </script>
+<style id="felde-login">
+/* ===== لوحة براند الدخول — من ملف هوية FELDÉ ===== */
+.lg2-brand{
+  background:
+    radial-gradient(720px 420px at 78% 16%, rgba(140,100,66,.30), transparent 62%),
+    radial-gradient(600px 540px at 10% 94%, rgba(94,27,43,.55), transparent 66%),
+    linear-gradient(168deg,#4A0A17 0%,#3C040F 48%,#23030A 100%);
+  color:#F2ECE7}
+.lg2-brand::before{content:"";position:absolute;inset:-45%;z-index:0;pointer-events:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='250' height='150'><text x='12' y='86' font-family='Georgia,serif' font-size='34' letter-spacing='7' fill='%23F2ECE7' fill-opacity='0.045'>FELD%C3%89</text></svg>");
+  background-size:250px 150px;transform:rotate(-16deg)}
+.lg2-btop,.lg2-bbot{position:relative;z-index:1}
+.lg2-brand .lg2-bub{background:rgba(242,236,231,.055)!important;border:1px solid rgba(242,236,231,.09)}
+.lg2-bsub{color:#F2ECE7;font-family:Georgia,'Times New Roman',serif;font-size:31px;font-weight:700;letter-spacing:8px;margin-bottom:16px}
+.lg2-btag{color:rgba(242,236,231,.84)}
+.lg2-bsep{background:rgba(242,236,231,.18)}
+.lg2-bnsq{color:#D8B08C}
+.lg2-rname{color:#F7F0EA}
+.lg2-rrole{color:#D8B08C}
+.lg2-dot{background:rgba(242,236,231,.25)}
+.lg2-dot.on{background:#D8B08C}
+.lg2-brand .lg2-blogo-img{box-shadow:0 8px 26px rgba(0,0,0,.4),0 0 0 4px rgba(255,255,255,.14)}
+.lg2-fmark{box-shadow:0 4px 18px rgba(60,4,15,.18),0 0 0 3px rgba(60,4,15,.06)}
+</style>
 </body>
 </html>
