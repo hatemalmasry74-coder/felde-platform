@@ -390,9 +390,15 @@ html[dir=ltr] .ni.active{border-left-color:var(--r);border-right:none}
 (function(){
   var MSGS=[
     {n:'أهلاً بك في FELDÉ', r:'سجّل دخولك لبدء يوم العمل'},
+    {n:'☕ خلف كل فنجان مثالي', r:'نظام مثالي وفريق ملتزم'},
+    {n:'التفاصيل الصغيرة', r:'هي التي تصنع التجربة الاستثنائية'},
+    {n:'الجودة عادة يومية', r:'وليست صدفة'},
+    {n:'أرقام اليوم الدقيقة', r:'قرارات الغد الصحيحة'},
+    {n:'فريق واحد، هدف واحد', r:'إسبريسو استثنائي'},
     {n:'أحمد القحطاني', r:'المدير العام'},
     {n:'حاتم عطية', r:'مدير العمليات والشؤون المالية'},
-    {n:'علي عسيري', r:'مدير التطوير والجودة'}
+    {n:'علي عسيري', r:'مدير التطوير والجودة'},
+    {n:'نَسَق لحلول التشغيل والأعمال', r:'شريككم نحو تشغيل أذكى'}
   ];
   var idx=0, nEl=document.getElementById('lg2-rname'), rEl=document.getElementById('lg2-rrole'), dWrap=document.getElementById('lg2-dots');
   if(!nEl||!rEl||!dWrap) return;
@@ -5068,6 +5074,7 @@ function startSession(){
   document.getElementById('app').style.display='block';
   document.getElementById('t-role').textContent=ROLE_NAMES[CU.role]||CU.role;
   document.getElementById('t-name').textContent=CU.name;
+  if(!window._feldeW){window._feldeW=1;setTimeout(feldeWelcome,700);}
   document.getElementById('w-msg').textContent='مرحباً، '+CU.name.split(' ')[0];
   document.getElementById('w-role').textContent=(ROLE_NAMES[CU.role]||CU.role)+' — FELDÉ';
   var now=new Date();
@@ -19158,6 +19165,27 @@ function accGo(pid){
 .urole{color:#D8B08C}
 .uname{color:#F2ECE7}
 .tb-logo{box-shadow:0 0 0 3px rgba(255,255,255,.28)}
+.felde-welcome{position:fixed;top:64px;left:50%;transform:translateX(-50%) translateY(-16px);opacity:0;background:linear-gradient(135deg,#3C040F,#5A0E1F);color:#F2ECE7;padding:12px 26px;border-radius:12px;box-shadow:0 10px 30px rgba(35,20,23,.4);z-index:9999;text-align:center;transition:all .5s ease;pointer-events:none;border:1px solid rgba(255,255,255,.15);max-width:92vw}
+.felde-welcome.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.felde-welcome .fw-t{font-weight:900;font-size:15px}
+.felde-welcome .fw-s{font-size:11px;color:#D8B08C;margin-top:3px}
 </style>
+<script>
+function feldeWelcome(){
+  try{
+    var h=(new Date()).getHours();
+    var g=h<12?'☀️ صباح الخير':(h<18?'🌤️ مساء الخير':'🌙 مساء الخير');
+    var tips=['قهوتك اليوم تبدأ بابتسامة','التفاصيل الصغيرة تصنع الفرق','يومك إنجازات بإذن الله','خلف كل فنجان مثالي نظام مثالي','أرقام دقيقة… قرارات أوضح','الجودة عادة يومية وليست صدفة'];
+    var tip=tips[Math.floor(Math.random()*tips.length)];
+    var name=(window.CU&&CU.name)?String(CU.name).replace(/</g,'&lt;'):'';
+    var d=document.createElement('div');
+    d.className='felde-welcome';
+    d.innerHTML='<div class="fw-t">'+g+(name?'، '+name:'')+' ☕</div><div class="fw-s">'+tip+'</div>';
+    document.body.appendChild(d);
+    setTimeout(function(){d.classList.add('show');},60);
+    setTimeout(function(){d.classList.remove('show');setTimeout(function(){d.remove();},500);},4800);
+  }catch(e){}
+}
+</script>
 </body>
 </html>
